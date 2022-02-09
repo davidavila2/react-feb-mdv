@@ -6,12 +6,16 @@ const intialState = {
   count: 0
 }
 
-function counterReducer(state = intialState, action: any) {
+enum counterActions {
+  increment = 'INCREMENT',
+  decrement = 'DECREMENT'
+}
 
+function counterReducer(state = intialState, action: any) {
   switch (action.type) {
-    case 'INCREMENT':
+    case counterActions.increment:
       return {count: state.count + 1}
-    case 'DECREMENT':
+    case counterActions.decrement:
       return {count: state.count - 1}
     default:
       return state
@@ -27,8 +31,8 @@ function Counter() {
       <p>{counter}</p>
 
       <div className="action-buttons">
-        <button onClick={() => dispatch({ type: 'DECREMENT' })}>-1</button>
-        <button onClick={() => dispatch({ type: 'INCREMENT' })}>+1</button>
+        <button onClick={() => dispatch({ type: counterActions.decrement })}>-1</button>
+        <button onClick={() => dispatch({ type: counterActions.increment })}>+1</button>
       </div>
 
       <Link to="/">Home</Link>
