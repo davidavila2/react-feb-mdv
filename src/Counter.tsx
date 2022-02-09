@@ -32,7 +32,6 @@ function Counter() {
         <button onClick={() => dispatch({ type: 'INCREMENT' })}>+1</button>
       </div>
 
-
       <Link to="/">Home</Link>
     </>
   );
