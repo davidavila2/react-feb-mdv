@@ -21,11 +21,11 @@ function counterReducer(state = intialState, action: any) {
 
 function Counter() {
   const dispatch = useDispatch()
-  const counter = useSelector((state: any) => state);
+  const counter = useSelector((state: any) => state?.counter?.count);
 
   return (
     <>
-      <p>{counter?.counter?.count}</p>
+      <p>{counter}</p>
 
       <div className="action-buttons">
         <button onClick={() => dispatch({ type: 'DECREMENT' })}>-1</button>
